@@ -1,0 +1,645 @@
+/* --- RESET GENERAL --- */
+
+body {
+    background: linear-gradient(to right, rgb(250, 235, 215), rgb(255, 250, 240));
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    /* Tu fuente preferida */
+
+    /* --- ESTO ES LO QUE HACE LA MAGIA --- */
+    display: flex;
+    flex-direction: column;
+    /* Coloca los elementos uno debajo de otro */
+    min-height: 100vh;
+    /* Obliga al body a medir AL MENOS el 100% de la altura de la pantalla */
+}
+
+/* //////////////////////////////////////////////////////////////////// HEADER //////////////////////////////////////////////////////////////////// */
+
+/* --- ESTILOS DE LA CABECERA --- */
+header {
+    /* FONDO DEGRADADO (Igual que antes) */
+    background: linear-gradient(to right, rgb(255, 69, 0), rgb(255, 127, 80));
+
+    /* TAMAÑO Y ESPACIADO (CAMBIOS AQUÍ) */
+    /* Quitamos el min-height fijo y dejamos que el contenido dicte la altura */
+    width: 100%;
+
+    /* Padding reducido: 10px arriba/abajo, 5px a los lados (casi pegado) */
+    padding: 10px 10px;
+    box-sizing: border-box;
+
+    /* Flexbox */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Color y Decoración */
+    color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.9);
+}
+
+/* --- ESTILOS DEL LOGO ADMINVIEWS --- */
+
+.logo-admin {
+    /* Aumentamos un poco el ancho permitido para que se lea bien */
+    max-width: 150px;
+
+    /* Limitamos la altura para que no deforme la cabecera */
+    max-height: 50px;
+    background-color: #FFFFFF;
+
+    /* Reduje un poco el padding interno del logo para ganar espacio */
+    padding: 5px 8px;
+    border-radius: 8px;
+    /* Radio un poco más sutil */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --- ESTILOS DEL BOTÓN DE VOLVER --- */
+
+.btn-inicio {
+    display: block;
+
+    /* Ajustado a 45px (un poco más pequeño que 50, pero aún fácil de clicar) */
+    width: 45px;
+    height: 45px;
+    transition: transform 0.3s ease;
+    z-index: 10;
+}
+
+.btn-inicio img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.btn-inicio:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* --- ESTILOS DEL MENÚ DE NAVEGACIÓN --- */
+
+.navegacion-header {
+    display: flex;
+    gap: 25px;
+    /* Separación entre las palabras */
+    align-items: center;
+}
+
+.navegacion-header a {
+    color: #FFFFFF;
+    text-decoration: none;
+    /* Quita el subrayado típico de los enlaces */
+    font-size: 1.1rem;
+    font-weight: 600;
+    /* Un poco de negrita */
+    text-transform: uppercase;
+    /* Opcional: pone el texto en mayúsculas */
+    letter-spacing: 1px;
+    padding: 5px 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Efecto Hover: Cambia ligeramente la opacidad y añade una línea abajo */
+.navegacion-header a:hover {
+    color: rgba(255, 255, 255, 0.8);
+    border-bottom: 2px solid white;
+}
+
+/* --- AJUSTE RESPONSIVE (PARA MÓVIL) --- */
+/* Añade esto para que en pantallas pequeñas el menú baje y no se amontone */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        /* Cambia a vertical */
+        gap: 15px;
+        /* Espacio entre logo, menú y botón */
+        padding: 15px;
+    }
+
+    .navegacion-header {
+        flex-direction: row;
+        /* Mantiene los enlaces en fila */
+        gap: 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* //////////////////////////////////////////////////////////////////// MAIN //////////////////////////////////////////////////////////////////// */
+
+main {
+    /* El 1 hace que este elemento ocupe todo el espacio libre disponible */
+    flex: 1;
+
+    /* Tu padding o estilos opcionales */
+    width: 100%;
+}
+
+/* Contenedor principal para centrar las tarjetas */
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    /* Centradas horizontalmente */
+    gap: 50px;
+    /* Separación entre las tarjetas */
+    padding: 50px 20px;
+    flex-wrap: wrap;
+    /* Para que baje una debajo de otra en móvil */
+}
+
+/* Estilo base de la tarjeta */
+
+.card {
+    width: 350px;
+    /* Ancho similar a la imagen */
+    background-color: white;
+    border: 1px solid #000;
+    /* Borde negro fino como en la imagen */
+    border-radius: 20px;
+    /* Bordes muy redondeados */
+    overflow: hidden;
+    /* Para que el color de fondo no se salga de las esquinas */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- PARTE SUPERIOR (NARANJA) --- */
+
+.card-header {
+    /* Mismo degradado que tu cabecera */
+    background: linear-gradient(to right, rgb(255, 69, 0), rgb(255, 127, 80));
+    padding: 30px 20px;
+    text-align: center;
+    color: white;
+
+    /* Flex para centrar icono y texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.card-icon {
+    width: 200px;
+    /* Tamaño del icono grande (TV/Cine) */
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    /* Vuelve el icono blanco si tu imagen es negra */
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+/* --- PARTE INFERIOR (BLANCA) --- */
+
+.card-body {
+    padding: 25px;
+    text-align: center;
+    flex-grow: 1;
+    /* Hace que ocupen el mismo alto si el texto varía */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-body p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* --- BOTÓN FLECHA --- */
+
+.btn-flecha {
+    background: linear-gradient(to right, rgb(255, 69, 0), rgb(255, 127, 80));
+    padding: 10px 40px;
+    /* Botón ancho */
+    border-radius: 10px;
+    display: inline-block;
+
+    /* Para alinear el botón a la derecha como en la imagen: */
+    align-self: flex-end;
+    transition: transform 0.2s ease;
+}
+
+.btn-flecha img {
+    width: 30px;
+    /* Tamaño de la flecha */
+    height: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    /* Asegura que la flecha se vea blanca */
+}
+
+.btn-flecha:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* //////////////////////////////////////////////////////////////////// FOOTER //////////////////////////////////////////////////////////////////// */
+
+footer {
+    background-color: #1a1a1a;
+    /* Fondo oscuro */
+    color: #ffffff;
+    /* Texto blanco */
+    border-top: 4px solid rgb(255, 69, 0);
+    /* Línea naranja superior */
+    text-align: center;
+    /* Texto centrado */
+    padding: 20px 0;
+    /* Espacio arriba y abajo */
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* //////////////////////////////////////////////////////////////////// SERIES / PELICULAS //////////////////////////////////////////////////////////////////// */
+
+/* --- ESTRUCTURA PRINCIPAL (TABLERO) --- */
+.tablero-visual {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    /* Separación amplia entre columnas */
+    padding: 40px 20px;
+    align-items: flex-start;
+    /* Alinea al top */
+    flex-wrap: wrap;
+}
+
+.columna-separada {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Espacio entre el título naranja y la caja blanca */
+}
+
+/* El título estilo "Botón" o "Píldora" */
+.titulo-pill {
+    background: linear-gradient(to right, #ff4e00, #ff7f50);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    /* Bordes redondeados */
+    border: 1px solid #000;
+    /* Borde negro fino como en el diseño */
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* La caja blanca grande donde caen las series */
+.caja-lista {
+    background-color: white;
+    border: 1px solid #000;
+    /* Borde negro */
+    border-radius: 10px;
+    min-height: 500px;
+    /* Altura fija alta */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* --- TARJETA DE SERIE INDIVIDUAL --- */
+.tarjeta-serie {
+    display: flex;
+    background: white;
+    border: 1px solid #000;
+    /* Borde negro en cada tarjeta */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.img-serie {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.info-serie {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-serie h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #000;
+}
+
+.info-serie p {
+    margin: 3px 0 0 0;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Acciones (Iconos a la derecha) */
+.acciones-serie {
+    display: flex;
+    flex-direction: column;
+    /* Iconos uno encima de otro o en fila segun prefieras */
+    align-items: flex-end;
+    gap: 5px;
+    min-width: 60px;
+}
+
+.btns-left,
+.btns-right {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-icon {
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.btn-icon:hover {
+    transform: scale(1.2);
+}
+
+.check {
+    color: #2ecc71;
+}
+
+.borrar {
+    color: #e74c3c;
+}
+
+
+/* --- BOTÓN AGREGAR (HEADER) --- */
+.btn-agregar-diseno {
+    background: linear-gradient(to right, #ff4e00, #ff7f50);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    /* Muy redondeado */
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.plus-icon {
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 20px;
+    /* Un pelín más grande */
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 1;
+    /* Reset del line-height */
+    margin-right: 2px;
+}
+
+
+/* --- MODAL (Diseño exacto foto 2) --- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Fondo blanco semitransparente como en diseño moderno? O oscuro? */
+    /* Si prefieres oscuro como suele ser: */
+    background-color: rgba(0, 0, 0, 0.5);
+
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-card-diseno {
+    /* Fondo Naranja Degradado */
+    background: linear-gradient(to bottom, #ff4e00, #ff8c00);
+    width: 350px;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #000;
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.modal-card-diseno h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.form-diseno {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Los inputs blancos con borde negro */
+.input-diseno {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #000;
+    /* Borde negro visible */
+    background-color: white;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.textarea-diseno {
+    resize: none;
+    height: 100px;
+}
+
+/* Select personalizado */
+.select-wrapper-diseno {
+    position: relative;
+}
+
+.select-diseno {
+    appearance: none;
+    -webkit-appearance: none;
+    color: #333;
+}
+
+.flecha-abajo {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    pointer-events: none;
+}
+
+/* Botón agregar dentro del modal */
+.btn-agregar-modal {
+    margin-top: 10px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-agregar-modal:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-cancelar {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-right: 10px;
+}
+
+/* --- CARROUSEL NETFLIX STYLE --- */
+.netflix-section {
+    padding: 20px 40px;
+    margin-bottom: 20px;
+}
+
+.netflix-section h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: 5px solid #FF4500;
+    padding-left: 15px;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 20px 5px;
+    /* Padding vertical para el efecto hover */
+    scroll-behavior: smooth;
+}
+
+/* Ocultar barra de scroll pero mantener funcionalidad */
+.carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.carousel::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.carousel::-webkit-scrollbar-thumb:hover {
+    background: #FF4500;
+}
+
+.poster-card {
+    flex: 0 0 auto;
+    /* No encoger, no crecer */
+    width: 160px;
+    position: relative;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    background: #000;
+    /* Fondo negro si no carga img */
+}
+
+.poster-card img {
+    width: 100%;
+    height: 240px;
+    /* Altura fija tipo poster */
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.poster-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.poster-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 15px 10px 10px;
+    border-radius: 0 0 8px 8px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.poster-card:hover .poster-overlay {
+    opacity: 1;
+}
+
+.poster-title {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
