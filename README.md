@@ -3,8 +3,11 @@
 ## 📖 Descripción
 **BirraFinder** es una aplicación web moderna diseñada para registrar y gestionar tus descubrimientos de bares y cervecerías. Funciona como una bitácora personal donde puedes guardar bares que quieres visitar ("Pendientes") y aquellos que ya conoces ("Visitados"), permitiéndote puntuarlos y añadir comentarios sobre tu experiencia.
 
-El proyecto está optimizado como una **Progressive Web App (PWA)**, lo que significa que puedes instalarla en tu dispositivo móvil directamente desde el navegador para una experiencia similar a una app nativa.
+---
 
+## 🔎 URL del proyecto: https://birrafinder.valentindg.com/
+
+---
 ## 🚀 Características
 - **🔐 Autenticación Segura:** Sistema completo de Registro e Inicio de Sesión para mantener tus datos privados.
 - **📊 Gestión de Estados:** Clasifica tus lugares en "Pendiente" o "Visitado".
